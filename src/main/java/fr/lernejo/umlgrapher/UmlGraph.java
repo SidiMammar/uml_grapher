@@ -10,7 +10,8 @@ public class UmlGraph {
         String result = "";
         if (graphType == GraphType.Mermaid) {
             try {
-
+                InternalGraphRepresentation graph = new InternalGraphRepresentation(classes);
+                result = new MermaidFormatter().format(graph);
             } catch (RuntimeException e) {
                 System.out.println("Error: " + e.getClass() + " - " + e.getMessage());
             }
